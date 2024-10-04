@@ -1,6 +1,7 @@
+/* Define initial css variables */
 :root{
-    --base-percentage: 95vh;
-    --cell-percentage: 6.25%;
+    --base-percentage: 95vh; /* Base size for the container */
+    --cell-percentage: 6.25%; /*Size of each cell relative to the container*/
 }
 
 body{
