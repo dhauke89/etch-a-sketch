@@ -13,6 +13,8 @@ function drawGrid(size){
         const newCell = document.createElement("div");
         newCell.setAttribute("class","cell");
         newCell.setAttribute("id",`cell${i}`); // Set a unique ID for each cell
+
+        //Append cell to the container
         container.appendChild(newCell);
     }
 }
@@ -24,7 +26,11 @@ drawGrid(16);
 container.addEventListener("mouseover", function(e){
     // Check if the mouseover event happened on a cell element
     if(e.target.classList.contains("cell")){
-        e.target.classList.toggle("colored"); // Toggle the 'colored' class as the mouse enters the cell
+        let opacity = parseFloat(e.target.style.opacity || "0");
+        opacity = Math.min(opacity + 0.1, 1);
+        let randomColor = Math.floor(Math.random()*16777215).toString(16); //opted to generate a random hex code instead of seperate rgb for simplicity sake.
+        e.target.style.backgroundColor = "#" + randomColor;
+        e.target.style.opacity = opacity;
     }
 });
 

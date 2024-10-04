@@ -21,14 +21,17 @@ body{
     width: var(--base-percentage);
     height: 0;
     padding-bottom: var(--base-percentage);
+    border: 1px solid black;
 }
 .cell{
-    flex-basis: calc(var(--cell-percentage) - 2px);
+    flex-basis: var(--cell-percentage);
     height: 0;
-    padding-bottom: calc(var(--cell-percentage) - 2px);
+    padding-bottom: var(--cell-percentage);
     flex-shrink: 0;
-    border: 1px solid black;
-
+    background-color: black;
+    opacity: 0;
+    display: flex;
+    align-items: stretch;
 }
 
 .colored{
