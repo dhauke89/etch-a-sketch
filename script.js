@@ -34,16 +34,26 @@ container.addEventListener("mouseover", function(e){
  * @param {number} size - The new size of the grid (rows and columns) 
  */
 function updateGridSize(size){
+    // Calculate the percentage each cell should occupy to fit in a row
     const cellPercentage = 100 / size;
+
+    //Update the CSS variable to adjust the cell size
     document.documentElement.style.setProperty('--cell-percentage', `${cellPercentage}%`);
+    
+    // Redraw the grid with the new size.
     drawGrid(size);
 }
 
+// Grab the button to trigger the grid change
 const changeButton = document.querySelector("#change-grid");
 
+// Add the event listener to the button
 changeButton.addEventListener("click", function() {
+    // Continuously prompt the user until a new size is entered.
     while(true){
         newSize = parseInt(prompt("Please select a new grid size (between 1 and 100"));
+        
+        // Check that the new number is a valid entry.
         if(Number.isInteger(newSize) && newSize > 0 && newSize <= 100){
             updateGridSize(newSize);
             break;
